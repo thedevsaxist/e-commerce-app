@@ -76,7 +76,7 @@ import 'package:provider/provider.dart';
 
 import 'app.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   serviceLocator();
 
