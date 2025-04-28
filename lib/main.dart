@@ -1,5 +1,5 @@
 /* 
-  The goal of this project is to implement the MVVM architecture propeerly
+  The goal of this project is to implement the MVVM architecture properly
   using contracts to define services, data sources, repositories, viewmodels and usecases.
 
   The project should also using get_it for dependency injection 

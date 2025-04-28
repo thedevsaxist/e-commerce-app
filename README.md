@@ -2,6 +2,11 @@
 
 A Flutter project implementing the **MVVM architecture** using contracts to define services, data sources, repositories, view models, and use cases.
 
+## Goal
+The goal of this project is to get accustomed to the mvvm architecture using standard practices.
+
+To pass, the project must include unit and widget tests to pass.
+
 ## Project Overview
 
 This project demonstrates a robust implementation of the MVVM architecture with the following features:
