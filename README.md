@@ -1,16 +1,52 @@
 # mvvm_contracts_impl
 
-A new Flutter project.
+A Flutter project implementing the **MVVM architecture** using contracts to define services, data sources, repositories, view models, and use cases.
 
-## Getting Started
+## Project Overview
 
-This project is a starting point for a Flutter application.
+This project demonstrates a robust implementation of the MVVM architecture with the following features:
 
-A few resources to get you started if this is your first Flutter project:
+- **State Management**: Provider
+- **Dependency Injection**: get_it
+- **Network Requests**: dio
+- **Data Storage**: SharedPreferences and Hive (optional)
+- **Backend**: Postman Mock Server
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### App Features
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+1. **User Roles**:
+   - Admin
+   - Vendor
+   - Customer
+
+2. **Login Functionality**:
+   - Users can log in and are assigned roles (Admin, Vendor, or Customer).
+
+3. **Home Page**:
+   - Displays differently based on the user's role:
+     - **Vendor**: Blue theme
+     - **Customer**: Red theme
+     - **Admin**: Yellow theme
+
+4. **CRUD Operations**:
+   - **Vendors**: Manage inventory (add, update, delete items).
+   - **Customers**: Manage cart (add, update, delete items).
+   - **Admins**: Manage users and oversee operations.
+
+5. **Environment Setup**:
+   - Staging
+   - Development
+   - Live
+
+### Backend Data Structure
+
+#### Shared
+```json
+{
+  "id": "string",
+  "first_name": "string",
+  "last_name": "string",
+  "role": "string",
+  "access_token": "string",
+  "refresh_token": "string"
+}
