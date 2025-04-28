@@ -1,0 +1,26 @@
+import 'package:mvvm_contracts_impl/features/auth/data/services/secure_storage_service.dart';
+import 'package:mvvm_contracts_impl/features/auth/domain/entities/user_request_entity.dart';
+import 'package:mvvm_contracts_impl/features/auth/domain/repo/auth_service_repo.dart';
+
+class LoginUsecase {
+  final AuthServiceRepo _repo;
+  final ISecureStorageService _secureStorageService;
+
+  LoginUsecase(this._repo, this._secureStorageService);
+
+  Future<dynamic> login(String email, String password) async {
+    final response = await _repo.login(
+      UserRequestEntity(
+        email: email,
+        password: password,
+      ),
+    );
+
+    await Future.wait([
+      _secureStorageService.storeToken(key: "access_token", token: response.access_token),
+      _secureStorageService.storeToken(key: "refresh_token", token: response.refresh_token),
+    ]);
+
+    return response;
+  }
+}
