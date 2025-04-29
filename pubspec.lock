@@ -360,7 +360,7 @@ packages:
     source: hosted
     version: "2.3.0"
   hive_ce_generator:
-    dependency: "direct main"
+    dependency: "direct dev"
     description:
       name: hive_ce_generator
       sha256: "3534164551c88fc3edb4dec2270d2cf5bf3ca6defa02b8247d9d5bd81eb364a6"

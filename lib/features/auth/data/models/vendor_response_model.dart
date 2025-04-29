@@ -1,6 +1,6 @@
 import 'package:hive_ce/hive.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:mvvm_contracts_impl/core/hive_type_ids.dart';
+import 'package:mvvm_contracts_impl/core/hive/hive_type_ids.dart';
 import 'package:mvvm_contracts_impl/features/auth/data/models/inventory_item_model.dart';
 import 'package:mvvm_contracts_impl/features/auth/domain/entities/vendor_response_entity.dart';
 

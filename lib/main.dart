@@ -69,9 +69,13 @@
   }
 */
 
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:hive_ce/hive.dart';
 import 'package:mvvm_contracts_impl/features/auth/presentation/state/login_screen_view_model.dart';
 import 'package:mvvm_contracts_impl/core/locator.dart';
+import 'package:mvvm_contracts_impl/core/hive/hive_registrar.g.dart';
 import 'package:provider/provider.dart';
 
 import 'app.dart';
@@ -79,6 +83,10 @@ import 'app.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   serviceLocator();
+
+  Hive
+    ..init(Directory.current.path)
+    ..registerAdapters();
 
   runApp(
     MultiProvider(
