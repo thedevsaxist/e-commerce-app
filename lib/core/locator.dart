@@ -31,6 +31,7 @@ void serviceLocator() {
     () => LoginUsecase(
       sl<AuthServiceRepo>(),
       sl<ISecureStorageService>(),
+      sl<LocalDatabaseRepo>(),
     ),
   );
 
