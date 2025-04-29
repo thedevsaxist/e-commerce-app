@@ -2,11 +2,12 @@
 
 import 'package:hive_ce/hive.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:mvvm_contracts_impl/core/hive_type_ids.dart';
 import 'package:mvvm_contracts_impl/features/auth/domain/entities/admin_response_entity.dart';
 
 part 'admin_response_model.g.dart';
 
-@HiveType(typeId: 0)
+@HiveType(typeId: HiveTypeIds.admin)
 @JsonSerializable(explicitToJson: true)
 class AdminResponseModel extends AdminResponseEntity with HiveObjectMixin {
   @HiveField(0)

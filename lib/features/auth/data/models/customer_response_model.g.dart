@@ -8,7 +8,7 @@ part of 'customer_response_model.dart';
 
 class CustomerResponseModelAdapter extends TypeAdapter<CustomerResponseModel> {
   @override
-  final typeId = 0;
+  final typeId = 2;
 
   @override
   CustomerResponseModel read(BinaryReader reader) {

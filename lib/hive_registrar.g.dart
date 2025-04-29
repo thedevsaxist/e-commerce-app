@@ -5,11 +5,13 @@
 import 'package:hive_ce/hive.dart';
 import 'package:mvvm_contracts_impl/features/auth/data/models/admin_response_model.dart';
 import 'package:mvvm_contracts_impl/features/auth/data/models/customer_response_model.dart';
+import 'package:mvvm_contracts_impl/features/auth/data/models/vendor_response_model.dart';
 
 extension HiveRegistrar on HiveInterface {
   void registerAdapters() {
     registerAdapter(AdminResponseModelAdapter());
     registerAdapter(CustomerResponseModelAdapter());
+    registerAdapter(VendorResponseModelAdapter());
   }
 }
 
@@ -17,5 +19,6 @@ extension IsolatedHiveRegistrar on IsolatedHiveInterface {
   void registerAdapters() {
     registerAdapter(AdminResponseModelAdapter());
     registerAdapter(CustomerResponseModelAdapter());
+    registerAdapter(VendorResponseModelAdapter());
   }
 }
