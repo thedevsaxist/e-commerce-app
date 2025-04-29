@@ -50,7 +50,7 @@ class LoginScreenViewModel extends ChangeNotifier implements ILoginScreenViewMod
     final loggedIn = await _usecase.login(email, password);
     final isAuthenticated = sl<ISecureStorageService>().isAuthenticated;
 
-    if (loggedIn != null && isAuthenticated) {
+    if (loggedIn.toString().isNotEmpty && isAuthenticated) {
       if (!context.mounted) return;
 
       switch (loggedIn.role) {

@@ -1,5 +1,6 @@
 import 'package:mvvm_contracts_impl/features/auth/data/services/secure_storage_service.dart';
 import 'package:mvvm_contracts_impl/features/auth/domain/entities/user_request_entity.dart';
+import 'package:mvvm_contracts_impl/features/auth/domain/entities/user_response_entity.dart';
 import 'package:mvvm_contracts_impl/features/auth/domain/repo/auth_service_repo.dart';
 
 class LoginUsecase {
@@ -8,7 +9,7 @@ class LoginUsecase {
 
   LoginUsecase(this._repo, this._secureStorageService);
 
-  Future<dynamic> login(String email, String password) async {
+  Future<UserResponseEntity> login(String email, String password) async {
     final response = await _repo.login(
       UserRequestEntity(
         email: email,

@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:mvvm_contracts_impl/features/auth/domain/entities/user_response_entity.dart';
 
 import '../services/auth_service.dart';
 
@@ -21,7 +22,7 @@ class AuthServiceRepoImpl implements AuthServiceRepo {
   const AuthServiceRepoImpl(this._service);
 
   @override
-  Future<dynamic> login(UserRequestEntity user) async {
+  Future<UserResponseEntity> login(UserRequestEntity user) async {
     try {
       final response = await _service.login(
         UserRequestModel(
@@ -41,6 +42,7 @@ class AuthServiceRepoImpl implements AuthServiceRepo {
           default:
         }
       }
+      throw Exception("Unexpected role or response format");
     } on DioException catch (e) {
       if (e.response!.statusCode == 400) {
         throw Exception("Invalid credentials");
