@@ -1,8 +1,10 @@
 import 'package:get_it/get_it.dart';
 import 'package:mvvm_contracts_impl/features/auth/data/repositories/local_database_repo_impl.dart';
+import 'package:mvvm_contracts_impl/features/auth/data/repositories/secure_storage_repo_impl.dart';
 import 'package:mvvm_contracts_impl/features/auth/data/services/secure_storage_service.dart';
 import 'package:mvvm_contracts_impl/features/auth/data/services/user_profile_local_database.dart';
 import 'package:mvvm_contracts_impl/features/auth/domain/repo/local_database_repo.dart';
+import 'package:mvvm_contracts_impl/features/auth/domain/repo/secure_storage_repo.dart';
 import '../features/auth/data/services/auth_service.dart';
 import '/features/auth/data/repositories/auth_service_repo_impl.dart';
 import '/features/auth/domain/repo/auth_service_repo.dart';
@@ -26,11 +28,15 @@ void serviceLocator() {
     () => LocalDatabaseRepoImpl(sl<ILocalDatabase>()),
   );
 
+  sl.registerLazySingleton<SecureStorageRepo>(
+    () => SecureStorageRepoImpl(sl<ISecureStorageService>()),
+  );
+
   // usecases
   sl.registerFactory<LoginUsecase>(
     () => LoginUsecase(
       sl<AuthServiceRepo>(),
-      sl<ISecureStorageService>(),
+      sl<SecureStorageRepo>(),
       sl<LocalDatabaseRepo>(),
     ),
   );
