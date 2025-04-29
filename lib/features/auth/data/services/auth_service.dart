@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:mvvm_contracts_impl/features/auth/data/models/user_request_model.dart';
 
 abstract class IAuthService {
@@ -8,7 +9,7 @@ abstract class IAuthService {
 class AuthService implements IAuthService {
   static final Dio _dio = Dio(
     BaseOptions(
-      baseUrl: "https://ef709a61-8d2c-4bf9-ba33-655990701b46.mock.pstmn.io",
+      baseUrl: dotenv.env["MOCK_SERVER_URL"] ?? "No url",
       headers: {
         "Content-Type": "application/json",
       },

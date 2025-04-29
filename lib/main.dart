@@ -72,6 +72,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:hive_ce/hive.dart';
 import 'package:mvvm_contracts_impl/features/auth/presentation/state/login_screen_view_model.dart';
 import 'package:mvvm_contracts_impl/core/locator.dart';
@@ -83,6 +84,8 @@ import 'app.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   serviceLocator();
+
+  await dotenv.load(fileName: ".env");
 
   Hive
     ..init(Directory.current.path)
